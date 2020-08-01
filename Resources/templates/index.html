@@ -6,10 +6,39 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    
+    
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript" src="countries.js"></script>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="simple-sidebar.css" rel="stylesheet" />
     <link href="static/style.css" rel="stylesheet" />
+
+    <style>
+      body {
+      height: 100%;
+      margin: 0;
+          }
+      #map {
+      width: 100%;
+      height: 600px;
+          }
+    </style>
 
     <title>GLobal Collapse</title>
 
@@ -91,6 +120,111 @@
         <!-- <code>#page-content-wrapper</code>. possible nav at top
         <code>#menu-toggle</code> ID to toggle the menu when clicked. -->
       </p>
+
+      <!-- Adding map -->
+      <div class="col-sm-12 col-lg-12">
+        <row>
+              <div class="parent">
+                <h3>Climate Map</h3> <p>This map depicts...
+                  </p>
+                              
+                                <div class="child" id="map">
+  
+                  <script type="text/javascript" src="countries.js"></script>
+  
+                  <script type="text/javascript">
+                  
+                  // Add map
+                  var map = L.map('map').setView([20, 0], 2);
+                    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'})
+                    .addTo(map);
+  
+  
+                  // Add hover
+                  var info = L.control();
+  
+                  info.onAdd = function (map) {
+                      this._div = L.DomUtil.create('div', 'info');
+                      this.update();
+                      return this._div;
+                  };
+  
+                  info.update = function (props) {
+                      this._div.innerHTML = '<h3><b>World Climate</b></h3>' +  (props ?
+                          '<b><font size="+1">' + props.name + '</b></font size="+1"><br/><i>'
+                          : 'Hover over a country');
+                  };
+  
+                  info.addTo(map);
+  
+  
+                  // Color depending on rate value
+                //   function getColor(d) {
+                //       return d > 8 ? '#630303' :
+                //               d > 6  ? '#CF2525' :
+                //               d > 4  ? '#FF6954' :
+                //               d > 2  ? '#FF9687' :
+                //               d > 0  ? '#FFCFC4' :
+                //                       '#FFCFC4' ;
+                //   }
+  
+                  function style(feature) {
+                      return {
+                          weight: 2,
+                          opacity: 1,
+                          color: 'white',
+                          dashArray: '3',
+                          fillOpacity: 0.8,
+                          fillColor: getColor(feature.properties.name)
+                      };
+                  }
+  
+                  // Add interaction
+                  function highlightFeature(e) {
+                      var layer = e.target;
+  
+                      layer.setStyle({
+                          weight: 5,
+                          color: '#666',
+                          dashArray: '3',
+                          fillOpacity: 0.7
+                      });
+  
+                      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                          layer.bringToFront();
+                      }
+  
+                      info.update(layer.feature.name);
+                  }
+  
+                  var geojson;
+  
+                  function resetHighlight(e) {
+                      geojson.resetStyle(e.target);
+                      info.update();
+                  }
+  
+                  function zoomToFeature(e) {
+                      map.fitBounds(e.target.getBounds());
+                  }
+  
+                  function onEachFeature(feature, layer) {
+                      layer.on({
+                          mouseover: highlightFeature,
+                          mouseout: resetHighlight,
+                          click: zoomToFeature
+                      });
+                  }
+  
+                  geojson = L.geoJson(countriesData, {
+                      style: style,
+                      onEachFeature: onEachFeature
+                  }).addTo(map);
+  
+                  </script>
+                </div>
+
     </div>
   </div>
   <!-- /#page-content-wrapper -->

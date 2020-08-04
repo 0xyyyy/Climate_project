@@ -10,7 +10,7 @@
 
 
 .bg-image {
-  background-image: url('dims.png');
+  background-image: url("dims.png");
 }
 
 
@@ -23,6 +23,7 @@ h1 {
 body {
   background-color: dimgray ;
   font-size: 1.4em;
+  background-image: url("dims.png");
 }
 
 

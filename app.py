@@ -20,11 +20,31 @@ greenhouseGas_ = Base.classes.greenhouseGas
 
 bp_ = Base.classes.bp 
 
+tempOil_ = Base.classes.tempOil
+
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return render_template('index.html')
+
+@app.route("/api/v1.0/tempOil")
+def oil():
+    session = Session(engine)
+
+    results = session.query(tempOil_.ID, tempOil_.Avg_Temp, tempOil_.Year, tempOil_.Thousand_Barrels_Daily)
+
+    session.close()
+
+    oil_info = []
+    for ID, Avg_Temp, Year, Thousand_Barrels_Daily in results:
+        oil_dict = {}
+        oil_dict["ID"] = ID,
+        oil_dict["Avg_Temp"] = Avg_Temp,
+        oil_dict["Year"] = Year,
+        oil_dict["Thousand_Barrels_Daily"] = Thousand_Barrels_Daily
+        oil_info.append(oil_dict)
+    return jsonify(oil_info)
 
 @app.route("/api/v1.0/greenhouseGas")
 def gas():

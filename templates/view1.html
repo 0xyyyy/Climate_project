@@ -6,10 +6,15 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="simple-sidebar.css" rel="stylesheet" />
-    <link href="static/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- 
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="../static/simple-sidebar.css" rel="stylesheet" />
+    <link href="../static/style.css" rel="stylesheet" />
+    <link href="../static/d3Style.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="../static/app.js"></script>
+
 
     <title>GLobal Collapse</title>
   </head>
@@ -86,6 +91,9 @@
 
         <div class="container-fluid">
           <h1 class="mt-4">View 1</h1>
+          <div id="scatter"></div>
+          <!-- append scatter plot here-->
+
           <p>blurb</p>
           <p>
             <!-- <code>#page-content-wrapper</code>. possible nav at top
@@ -98,15 +106,15 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Menu Toggler -->
-    <script>
+    <!-- <script>
       $('#menu-toggle').click(function (e) {
         e.preventDefault()
         $('#wrapper').toggleClass('toggled')
       })
-    </script>
+    </script> -->
   </body>
 </html>

@@ -2,7 +2,7 @@ var svgWidth = 960;
 var svgHeight = 900;
 
 var margin = {
-  top: 40,
+  top: 45,
   right: 100,
   bottom: 200,
   left: 130
@@ -97,7 +97,7 @@ d3.csv("totalworld.csv").then(function(renewData) {
         .style("font-size", "30px")  
         .style("fill", "slategray")
         .style("font-family", "Times New Roman")
-        .text("Renewables");
+        .text("Total World Renewable Rates from 1965-2019");
 
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")

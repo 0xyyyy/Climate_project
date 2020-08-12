@@ -26,7 +26,7 @@ var chartHeight = height - margins.top - margins.bottom;
 var chartWidth = width - margins.left - margins.right;
 
 //create svg container 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#scatter").append("svg")
     .attr("height", height)
     .attr("width", width);
 
@@ -36,7 +36,7 @@ var chartGroup = svg.append('g')
 d3.json(url.oil_url).then(function (oilData) {
     oilData.forEach(function (data) {
         data.ID = +data.ID
-        data.Avg_temp = +data.Avg_temp
+        data.Avg_Temp = +data.Avg_Temp
         data.Year = +data.Year
         data.Thousand_Barrels_Daily = +data.Thousand_Barrels_Daily
     })
@@ -47,7 +47,7 @@ d3.json(url.oil_url).then(function (oilData) {
     .range([0, chartWidth]);
 
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(oilData, d => d.Avg_temp)])
+    .domain([0, d3.max(oilData, d => d.Avg_Temp)])
     .range([chartHeight, 0]);
 
     var bottomAxis = d3.axisBottom(xLinearScale);
@@ -65,7 +65,7 @@ d3.json(url.oil_url).then(function (oilData) {
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d.Thousand_Barrels_Daily))
-    .attr("cy", d => yLinearScale(d.Avg_temp))
+    .attr("cy", d => yLinearScale(d.Avg_Temp))
     .attr("r", "15")
     .attr("fill", "pink")
     .attr("opacity", "0.5");
@@ -75,7 +75,7 @@ d3.json(url.oil_url).then(function (oilData) {
         .enter()
         .append('text')
         .attr('x', d => xLinearScale(d.Thousand_Barrels_Daily))
-        .attr('y', d => yLinearScale(d.Avg_temp))
+        .attr('y', d => yLinearScale(d.Avg_Temp))
         .text(d => d.Year)
         .attr('class', 'stateText')
         .attr('font-size', '12px')
@@ -96,6 +96,11 @@ d3.json(url.oil_url).then(function (oilData) {
         .text("Barrels Consumed Daily in Thousands")
 })
 
+
+
+
+
+// __________________________________________________________________
 // d3.json(url.bp_url).then(function (iData) {
 //     iData.forEach(function (data) {
 //         data.ID = +data.ID

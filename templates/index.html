@@ -7,7 +7,7 @@
     <meta name="author" content="" />
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/> -->
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
@@ -21,13 +21,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src="static/countries.js"></script> 
-    <script type="text/javascript" src="static/app.js"></script> 
+    <script type="text/javascript" src="static/countries.js"></script>
+    <script src="../static/app.js"></script>
 
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/simple-sidebar.css">
-    <link rel="stylesheet" href="static/style.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/simple-sidebar.css" rel="stylesheet" />
+    <link href="static/style.css" rel="stylesheet" />
 
     <style>
       body {
@@ -44,197 +45,193 @@
 
 </head>
 
-<body>
+<body class="bg-image">
+    <div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-dark border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading"></div>
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action bg-dark">Dashboard</a>
+      <a href="index.html" class="list-group-item list-group-item-action bg-dark">Home</a>
+      <a href="view1.html" class="list-group-item list-group-item-action bg-dark">View1</a>
+      <a href="view2.html" class="list-group-item list-group-item-action bg-dark">View2</a>
+     
+      <!-- <a href="#" class="list-group-item list-group-item-action bg-dark">Link4</a>
+      <a href="#" class="list-group-item list-group-item-action bg-dark">Link5</a> -->
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+      <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-
-          <div class="d-flex" id="wrapper">
-              <!-- Sidebar -->
-              <div class="bg-dark border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading"></div>
-                <div class="list-group list-group-flush">
-                  <a href="#" class="list-group-item list-group-item-action bg-dark">Dashboard</a>
-                  <a href="index.html" class="list-group-item list-group-item-action bg-dark">Home</a>
-                  <a href="view1.html" class="list-group-item list-group-item-action bg-dark">View1</a>
-                  <a href="view2.html" class="list-group-item list-group-item-action bg-dark">View2</a>
-                
-
-                </div>
-              </div>
-              <!-- /#sidebar-wrapper -->
-
-              <!-- Page Content -->
-              <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
-                  <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-
-                  <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#"
-                          >Home <span class="sr-only">(current)</span></a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a
-                          class="nav-link dropdown-toggle"
-                          href="#"
-                          id="navbarDropdown"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Dropdown
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="navbarDropdown"
-                        >
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </li>
-                    </ul> -->
-                  </div>
-                </nav>
-
-
-                <div class="container-fluid">
-                  <h1 class="mt-4">Climate Change</h1>
-                  <p>blurb</p>
-                  <p>
-
-                  </p>
-
-                  <!-- Adding map -->
-                  <div class="col-sm-12 col-lg-12">
-                    <row>
-                          <div class="parent">
-                            <h3>World Map</h3> <p>This map depicts...
-                              </p>
-                                          
-                                            <div class="child" id="map">
-              
-                              <script type="text/javascript" src="../static/countries.js"></script>
-              
-                              <script type="text/javascript">
-                              
-                              // Add map
-                              var map = L.map('map').setView([20, 0], 2);
-                                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                                {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'})
-                                .addTo(map);
-              
-              
-                              // Add hover
-                              var info = L.control();
-              
-                              info.onAdd = function (map) {
-                                  this._div = L.DomUtil.create('div', 'info');
-                                  this.update();
-                                  return this._div;
-                              };
-              
-                              info.update = function (props) {
-                                  this._div.innerHTML = '<h3><b>Oil Consumption</b></h3>' +  (props ?
-                                      '<b><font size="+1">' + props.name + '</b></font size="+1"><br/><i>'
-                                      : 'Hover over a country');
-                              };
-              
-                              info.addTo(map);
-              
-              
-                              // Color depending on rate value
-                            //   function getColor(d) {
-                            //       return d > 8 ? '#630303' :
-                            //               d > 6  ? '#CF2525' :
-                            //               d > 4  ? '#FF6954' :
-                            //               d > 2  ? '#FF9687' :
-                            //               d > 0  ? '#FFCFC4' :
-                            //                       '#FFCFC4' ;
-                            //   }
-              
-                              function style(feature) {
-                                  return {
-                                      weight: 2,
-                                      opacity: 1,
-                                      color: 'white',
-                                      dashArray: '3',
-                                      fillOpacity: 0.8,
-                                      fillColor: getColor(feature.properties.name)
-                                  };
-                              }
-              
-                              // Add interaction
-                              function highlightFeature(e) {
-                                  var layer = e.target;
-              
-                                  layer.setStyle({
-                                      weight: 5,
-                                      color: '#666',
-                                      dashArray: '3',
-                                      fillOpacity: 0.7
-                                  });
-              
-                                  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-                                      layer.bringToFront();
-                                  }
-              
-                                  info.update(layer.feature.name);
-                              }
-              
-                              var geojson;
-              
-                              function resetHighlight(e) {
-                                  geojson.resetStyle(e.target);
-                                  info.update();
-                              }
-              
-                              function zoomToFeature(e) {
-                                  map.fitBounds(e.target.getBounds());
-                              }
-              
-                              function onEachFeature(feature, layer) {
-                                  layer.on({
-                                      mouseover: highlightFeature,
-                                      mouseout: resetHighlight,
-                                      click: zoomToFeature
-                                  });
-                              }
-              
-                              geojson = L.geoJson(countriesData, {
-                                  style: style,
-                                  onEachFeature: onEachFeature
-                              }).addTo(map);
-              
-                              </script>
-                            </div>
-
-                </div>
-              </div>
-
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
             </div>
+          </li>
+        </ul> -->
+      </div>
+    </nav>
 
+    <div class="container-fluid">
+      <h1 class="mt-4">Climate Change</h1>
+      <p>blurb</p>
+      <p>
+        <!-- <code>#page-content-wrapper</code>. possible nav at top
+        <code>#menu-toggle</code> ID to toggle the menu when clicked. -->
+      </p>
 
+      <!-- Adding map -->
+      <div class="col-sm-12 col-lg-12">
+        <row>
+              <div class="parent">
+                <h3>World Map</h3> <p>This map depicts...
+                  </p>
+                              
+                                <div class="child" id="map">
+  
+                  <script type="text/javascript" src="static/countries.js"></script>
+  
+                  <script type="text/javascript">
+                  
+                  // Add map
+                  var map = L.map('map').setView([20, 0], 2);
+                    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'})
+                    .addTo(map);
+  
+  
+                  // Add hover
+                  var info = L.control();
+  
+                  info.onAdd = function (map) {
+                      this._div = L.DomUtil.create('div', 'info');
+                      this.update();
+                      return this._div;
+                  };
+  
+                  info.update = function (props) {
+                      this._div.innerHTML = '<h3><b>Oil Consumption</b></h3>' +  (props ?
+                          '<b><font size="+1">' + props.name + '</b></font size="+1"><br/><i>'
+                          : 'Hover over a country');
+                  };
+  
+                  info.addTo(map);
+  
+  
+                  // Color depending on rate value
+                //   function getColor(d) {
+                //       return d > 8 ? '#630303' :
+                //               d > 6  ? '#CF2525' :
+                //               d > 4  ? '#FF6954' :
+                //               d > 2  ? '#FF9687' :
+                //               d > 0  ? '#FFCFC4' :
+                //                       '#FFCFC4' ;
+                //   }
+  
+                  function style(feature) {
+                      return {
+                          weight: 2,
+                          opacity: 1,
+                          color: 'white',
+                          dashArray: '3',
+                          fillOpacity: 0.8,
+                          fillColor: getColor(feature.properties.name)
+                      };
+                  }
+  
+                  // Add interaction
+                  function highlightFeature(e) {
+                      var layer = e.target;
+  
+                      layer.setStyle({
+                          weight: 5,
+                          color: '#666',
+                          dashArray: '3',
+                          fillOpacity: 0.7
+                      });
+  
+                      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                          layer.bringToFront();
+                      }
+  
+                      info.update(layer.feature.name);
+                  }
+  
+                  var geojson;
+  
+                  function resetHighlight(e) {
+                      geojson.resetStyle(e.target);
+                      info.update();
+                  }
+  
+                  function zoomToFeature(e) {
+                      map.fitBounds(e.target.getBounds());
+                  }
+  
+                  function onEachFeature(feature, layer) {
+                      layer.on({
+                          mouseover: highlightFeature,
+                          mouseout: resetHighlight,
+                          click: zoomToFeature
+                      });
+                  }
+  
+                  geojson = L.geoJson(countriesData, {
+                      style: style,
+                      onEachFeature: onEachFeature
+                  }).addTo(map);
+  
+                  </script>
+                </div>
+
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>

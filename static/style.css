@@ -1,0 +1,65 @@
+@font-face {
+  font-family: '5Ceta-Mono-Regular';
+  src: url('5Ceta-Mono-Regular.ttf.woff') format('woff'),
+    url('5Ceta-Mono-Regular.ttf.svg#5Ceta-Mono-Regular') format('svg'),
+    url('5Ceta-Mono-Regular.ttf.eot'),
+    url('5Ceta-Mono-Regular.ttf.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.bg-image {
+  background-image: url("dims.png");
+}
+
+
+h1 {
+  font-family: '5Ceta-Mono-Regular';
+  color: blanchedalmond;
+}
+
+
+body {
+  background-color: dimgray ;
+  font-size: 1.4em;
+  background-image: url("dims.png");
+}
+
+
+.list-group-item {
+  color: blanchedalmond;
+
+}
+
+.list-group-item:hover {
+  color: blanchedalmond;
+  border: none;
+
+}
+
+
+.btn {
+  background-color: dimgray;
+  color: blanchedalmond;
+  border: none; 
+}
+
+.btn:hover {
+  background-color: black;
+  border: none;
+}
+
+/* .btn:active {
+  background-color:lightslategray;
+
+} */
+
+/* .clicked {
+  background-color: black;
+} */
+
+.btn.active {
+  background-color: black;
+  border:none;
+}

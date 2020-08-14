@@ -43,11 +43,11 @@ d3.json(url.oil_url).then(function (oilData) {
     console.log(oilData)
 
     var xLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(oilData, d => d.Thousand_Barrels_Daily)])
+    .domain([d3.min(oilData, d => d.Thousand_Barrels_Daily) * .8, d3.max(oilData, d => d.Thousand_Barrels_Daily)])
     .range([0, chartWidth]);
 
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(oilData, d => d.Avg_Temp)])
+    .domain([d3.min(oilData, d => d.Avg_Temp) - 1, d3.max(oilData, d => d.Avg_Temp)])
     .range([chartHeight, 0]);
 
     var bottomAxis = d3.axisBottom(xLinearScale);

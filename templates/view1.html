@@ -12,8 +12,23 @@
     <link href="../static/simple-sidebar.css" rel="stylesheet" />
     <link href="../static/style.css" rel="stylesheet" />
     <link href="../static/d3Style.css" rel="stylesheet"/>
+    <!-- This section imports d3 v5, saves the object, then clears it and reloads d3v3 for use at the bottom of the html.
+    v5 is only used on the app.js-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+      d3v5 = window.d3;
+      window.d3 = null
+    </script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://unpkg.com/function-plot@1/dist/function-plot.js"></script>
+    <!-- <script>
+      functionPlot({
+        target: '#scatter',
+        data: [{
+            fn: '0.0539e^(-0.000171x)+8.1277'
+        }]
+        })
+    </script> -->
 
 
 
@@ -118,5 +133,15 @@
       })
     </script> -->
     <script src="../static/app.js"></script>
+    <!-- This portion is operating on d3 v3, because functionPlot requires an older version -->
+    <script>
+      functionPlot({
+        target: '#scatter',
+        data: [{
+            // fn: '0.0539e^(-0.000171x)+8.1277'
+            fn: 'x'
+        }]
+        })
+    </script>
   </body>
 </html>

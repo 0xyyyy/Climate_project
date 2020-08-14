@@ -3,6 +3,8 @@ var url = {
     bp_url: "http://127.0.0.1:5000/api/v1.0/bpdata",
     oil_url: "http://127.0.0.1:5000/api/v1.0/tempOil"
 }
+// Imports d3 version 5 for use here, since d3 v3 is currently loaded on the html
+d3 = d3v5;
 
 const greenhouseGas_df = d3.json(url.greenhouseGas_url).then(data=> console.log(data))
 
@@ -94,7 +96,13 @@ d3.json(url.oil_url).then(function (oilData) {
         .attr('transform', `translate(0, -5)`)
         .attr("class", "axisText")
         .text("Barrels Consumed Daily in Thousands")
+
+    
+    console.log("update");
+    
 })
+
+
 
 
 

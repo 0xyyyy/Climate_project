@@ -21,14 +21,6 @@
     </script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://unpkg.com/function-plot@1/dist/function-plot.js"></script>
-    <!-- <script>
-      functionPlot({
-        target: '#scatter',
-        data: [{
-            fn: '0.0539e^(-0.000171x)+8.1277'
-        }]
-        })
-    </script> -->
 
 
 
@@ -132,14 +124,34 @@
         $('#wrapper').toggleClass('toggled')
       })
     </script> -->
+
     <script src="../static/app.js"></script>
     <!-- This portion is operating on d3 v3, because functionPlot requires an older version -->
     <script>
       functionPlot({
         target: '#scatter',
-        data: [{
-            // fn: '0.0539e^(-0.000171x)+8.1277'
-            fn: 'x'
+        width: 1000,
+        height: 600,
+        disableZoom: true,
+        xAxis: {
+          label: 'x - axis',
+          domain: [0, 20531]
+        },
+        yAxis: {
+          label: 'y - axis',
+          domain: [7.428083333333335, 11.297111111111114]
+        },
+        data: [
+        {
+          fn: '0.0539 * (2.718281828459045^(0.000171 * x)) + 8.1277',
+          //fn: `.0539 * ${Math.E}^(.00171 * x) + 8.1277`,
+          // fn: '6.8472*1.000017^x',
+          color: 'blue'
+          //fn: 'x'
+        },
+        {
+          fn: '9',
+          color: "green"
         }]
         })
     </script>

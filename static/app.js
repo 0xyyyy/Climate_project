@@ -43,18 +43,18 @@ d3.json(url.oil_url).then(function (oilData) {
     console.log(oilData)
 
     var xLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(oilData, d => d.Thousand_Barrels_Daily)])
+    .domain([10000, d3.max(oilData, d => d.Thousand_Barrels_Daily)])
     .range([0, chartWidth]);
 
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(oilData, d => d.Avg_Temp)])
+    .domain([7.5, d3.max(oilData, d => d.Avg_Temp)])
     .range([chartHeight, 0]);
 
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
 
     chartGroup.append("g")
-    .attr("transform", `translate(0, -20)`)
+    .attr("transform", `translate(0, ${chartHeight})`)
     .call(bottomAxis);
 
     chartGroup.append("g")
@@ -66,8 +66,8 @@ d3.json(url.oil_url).then(function (oilData) {
     .append("circle")
     .attr("cx", d => xLinearScale(d.Thousand_Barrels_Daily))
     .attr("cy", d => yLinearScale(d.Avg_Temp))
-    .attr("r", "15")
-    .attr("fill", "pink")
+    .attr("r", "12")
+    .attr("fill", "grey")
     .attr("opacity", "0.5");
 
     var textGroup = chartGroup.selectAll(".yearText")
@@ -78,20 +78,20 @@ d3.json(url.oil_url).then(function (oilData) {
         .attr('y', d => yLinearScale(d.Avg_Temp))
         .text(d => d.Year)
         .attr('class', 'stateText')
-        .attr('font-size', '12px')
+        .attr('font-size', '10px')
         .attr('text-anchor', 'middle')
         .attr('fill', 'grey')
     
     chartGroup.append('text')
         .attr("transform", `rotate(-90)`)
-        .attr("y", 0 - margins.left + 40)
+        .attr("y", 0 - margins.left + 20)
         .attr("x", 0 - (chartHeight/2))
         .attr("dy", "1em")
         .attr('class', 'axisText')
         .text("Average Temperature by Year US")
     
     chartGroup.append("text")
-        .attr('transform', `translate(0, -5)`)
+        .attr('transform', `translate(325, ${chartHeight + 40})`)
         .attr("class", "axisText")
         .text("Barrels Consumed Daily in Thousands")
 })

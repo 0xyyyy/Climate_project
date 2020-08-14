@@ -28,6 +28,10 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route("/index.html")
+def homepage():
+    return render_template('index.html')
+
 @app.route("/api/v1.0/tempOil")
 def oil():
     session = Session(engine)

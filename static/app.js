@@ -80,7 +80,7 @@ d3.json(url.oil_url).then(function (oilData) {
         .attr('class', 'stateText')
         .attr('font-size', '10px')
         .attr('text-anchor', 'middle')
-        .attr('fill', 'grey')
+        .attr('fill', 'red')
     
     chartGroup.append('text')
         .attr("transform", `rotate(-90)`)

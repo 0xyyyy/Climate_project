@@ -32,6 +32,10 @@ def home():
 def homepage():
     return render_template('index.html')
 
+@app.route("/view2.html")
+def view2():
+    return render_template("view2.html")
+
 @app.route("/api/v1.0/tempOil")
 def oil():
     session = Session(engine)

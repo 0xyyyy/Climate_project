@@ -18,14 +18,14 @@ h1 {
 
 div .blurbs {
   color: blanchedalmond;
-  padding:px;
+  padding: 7px;
   margin: 0px;
   border: 0px;
 }
 
 div .svg_img {
-  padding:10px;
-  margin: 50px;
+  padding:5px;
+  margin: 5px;
   border: 0px;
 }
 
@@ -77,9 +77,9 @@ body {
 /* #####  SVG CSS code  below ##### */
 
 #logo{
-    position: absolute;
-    top: 7%;
-    left: 17%;
+    position: relative;
+    top: 0%;
+    left: 0%;
     /* transform: translate(-30%, -15%); */ 
     animation: fill 3.9s ease forwards 5s;
 

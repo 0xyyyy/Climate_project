@@ -73,6 +73,10 @@ body {
   border:none;
 }
 
+.graphdiv {
+  background: blanchedalmond;
+  width: 1050px;
+}
 
 /* #####  SVG CSS code  below ##### */
 

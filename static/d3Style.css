@@ -4,16 +4,16 @@
   text-anchor: middle;
 }
 
-.active {
+ .active {
   font-weight: bold;
-  fill: darkslategray;
-  transition: fill 0.3s ease-out;
+  fill: dimgrey;
+ 
   text-anchor: middle;
-}
+} 
 
 .inactive {
   font-weight: lighter;
-  fill: rgb(105, 103, 92);
+  fill: darkslateblue;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
 }
@@ -21,19 +21,19 @@
 .inactive:hover {
   fill: rgb(19, 182, 223);
   cursor: pointer;
-}
+} */
 
 /* font size dependent on radius, see app.js */
 .stateText {
   font-family: sans-serif;
   font-weight: bolder;
-  fill: steelblue;
+  fill: lightgoldenrodyellow;
   text-anchor: middle;
 }
 
-.stateCircle {
-  fill: lightskyblue;
-  stroke: darkslategray;
+.circle {
+  fill: rgb(53, 36, 14);
+  
 }
 
 .chart {
@@ -41,7 +41,13 @@
   margin: 0;
 }
 
-.d3-tip {
+.yearText {
+  fill: blanchedalmond;
+  font-weight: bold;
+
+}
+
+/* .d3-tip {
   padding: 6px;
   font-size: 12px;
   line-height: 1;
@@ -51,7 +57,7 @@
   text-transform: capitalize;
   background: darkslategrey;
   border-radius: 4px;
-}
+} */
 
 /* Mobile Rules */
 @media screen and (max-width: 530px) {

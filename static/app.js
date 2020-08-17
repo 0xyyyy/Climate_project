@@ -29,7 +29,7 @@ var margins = {
     top: 50, 
     right: 50, 
     bottom: 50, 
-    left: 50
+    left: 80
 }
 
 // chart area minus margins 
@@ -77,33 +77,56 @@ d3.json(url.oil_url).then(function (oilData) {
     .append("circle")
     .attr("cx", d => xLinearScale(d.Thousand_Barrels_Daily))
     .attr("cy", d => yLinearScale(d.Avg_Temp))
-    .attr("r", "12")
-    .attr("fill", "grey")
-    .attr("opacity", "0.5");
+    .attr('class', 'circle')
+    .attr("r", "14")
+    .attr("opacity", "0.7")
+    
 
-    var textGroup = chartGroup.selectAll(".yearText")
+    var textGroup = chartGroup.selectAll("yearText")
         .data(oilData)
         .enter()
         .append('text')
         .attr('x', d => xLinearScale(d.Thousand_Barrels_Daily))
         .attr('y', d => yLinearScale(d.Avg_Temp))
         .text(d => d.Year)
-        .attr('class', 'stateText')
-        .attr('font-size', '10px')
+        .attr('class', 'yearText')
+        .attr('font-size', '11px')
         .attr('text-anchor', 'middle')
-        .attr('fill', 'red')
+        .attr("dy", ".3em");
+       
+
+
+            // // y axis gp ADDED
+            var yLabelsGp = chartGroup
+            .append('g')
+            .attr('transform', `translate(-20, ${chartHeight / 2})`)
+
+            // // Append yAxis ADDED
+            var tempLabel = yLabelsGp
+            .append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', -45)
+            .attr('x', 0)
+            .attr('dy', '1em')
+            .classed('axis-text', true)
+            .classed('active', true)
+            .text('Average Temperature by Year US')
+
+
+
     
-    chartGroup.append('text')
-        .attr("transform", `rotate(-90)`)
-        .attr("y", 0 - margins.left + 20)
-        .attr("x", 0 - (chartHeight/2))
-        .attr("dy", "1em")
-        .attr('class', 'axisText')
-        .text("Average Temperature by Year US")
+    // chartGroup.append('text')
+    //     .attr("transform", `rotate(-90)`)
+    //     .attr("y", 0 - margins.left + 20)
+    //     .attr("x", 0 - (chartHeight/2))
+    //     .attr("dy", "1em")
+    //     .attr('class', 'axisText')
+    //     .text("Average Temperature by Year US")
     
     chartGroup.append("text")
-        .attr('transform', `translate(325, ${chartHeight + 40})`)
+        .attr('transform', `translate(400, ${chartHeight + 40})`)
         .attr("class", "axisText")
+        .classed('active', true)
         .text("Barrels Consumed Daily in Thousands")
 })
 

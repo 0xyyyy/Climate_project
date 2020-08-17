@@ -91,11 +91,11 @@
         </nav>
 
         <div class="container-fluid">
-          <h1 class="mt-4">View 1</h1>
+          <h1 class="mt-4">US Oil Consumption</h1>
           <div id="scatter"></div>
           <!-- append scatter plot here-->
 
-          <p>This chart shows how increasing oil consumption in the united states has correlated with increased surface temperatures in the US. We used a machine learning model
+          <p class="blurbs">This chart shows how increasing oil consumption in the united states has correlated with increased surface temperatures in the US. We used a machine learning model
             to predict future increases in temperature, however, since the data looks exponential we were unable to get a meaningful regression. Instead we plotted a line from an exponential fit equation.
           </p>
           <p>
@@ -112,13 +112,13 @@
     <!-- <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
-    <!-- Menu Toggler -->
-    <!-- <script>
-      $('#menu-toggle').click(function (e) {
-        e.preventDefault()
-        $('#wrapper').toggleClass('toggled')
-      })
-    </script> -->
+        <!-- Menu Toggler -->
+        <script>
+          $('#menu-toggle').click(function (e) {
+            e.preventDefault()
+            $('#wrapper').toggleClass('toggled')
+          });
+    </script> 
     <script src="../static/app.js"></script>
   </body>
 </html>

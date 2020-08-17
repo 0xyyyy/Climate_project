@@ -1,3 +1,14 @@
+
+// ######  code block for SVG animation  ######
+const logo = document.querySelectorAll('#logo path')
+
+for (let i = 0; i < logo.length; i++)
+  console.log(`Letter ${i} is & ${logo[i].getTotalLength()}`)
+// #####  end SVG code  ######
+
+
+
+// D3 code block
 var url = {
     greenhouseGas_url: "http://127.0.0.1:5000/api/v1.0/greenhouseGas",
     bp_url: "http://127.0.0.1:5000/api/v1.0/bpdata",

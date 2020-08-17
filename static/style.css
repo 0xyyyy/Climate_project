@@ -9,16 +9,25 @@
 }
 
 
-.bg-image {
-  background-image: url("dims.png");
-}
-
 
 h1 {
   font-family: '5Ceta-Mono-Regular';
   color: blanchedalmond;
+  font-size: large;
 }
 
+div .blurbs {
+  color: blanchedalmond;
+  padding:px;
+  margin: 0px;
+  border: 0px;
+}
+
+div .svg_img {
+  padding:10px;
+  margin: 50px;
+  border: 0px;
+}
 
 body {
   background-color: dimgray ;
@@ -63,3 +72,111 @@ body {
   background-color: black;
   border:none;
 }
+
+
+/* #####  SVG CSS code  below ##### */
+
+#logo{
+    position: absolute;
+    top: 7%;
+    left: 17%;
+    /* transform: translate(-30%, -15%); */ 
+    animation: fill 3.9s ease forwards 5s;
+
+}
+
+#logo path:nth-child(1) {
+    stroke-dasharray: 376;
+    stroke-dashoffset: 376;
+    animation: line-anim  2s ease forwards 0.3s;
+}
+
+#logo path:nth-child(2) {
+    stroke-dasharray: 158;
+    stroke-dashoffset: 158;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+
+#logo path:nth-child(3) {
+    stroke-dasharray: 90;
+    stroke-dashoffset: 90;
+    animation: line-anim 2s ease forwards 0.9s;
+}
+
+#logo path:nth-child(4) {
+    stroke-dasharray: 351;
+    stroke-dashoffset: 351;
+    animation: line-anim 2s ease forwards 1.2s;
+}
+
+#logo path:nth-child(5) {
+    stroke-dasharray: 294;
+    stroke-dashoffset: 294;
+    animation: line-anim 2s ease forwards 1.5s;
+}
+
+#logo path:nth-child(6) {
+    stroke-dasharray: 216;
+    stroke-dashoffset: 216;
+    animation: line-anim 2s ease forwards 1.8s;
+}
+
+#logo path:nth-child(7) {
+    stroke-dasharray: 290;
+    stroke-dashoffset: 290;
+    animation: line-anim 2s ease forwards 2.1s;
+}
+
+#logo path:nth-child(8) {
+    stroke-dasharray: 376;
+    stroke-dashoffset: 376;
+    animation: line-anim 2s ease forwards 2.4s;
+}
+
+#logo path:nth-child(9) {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: line-anim 2s ease forwards 2.7s;
+}
+
+#logo path:nth-child(10) {
+  stroke-dasharray: 294;
+  stroke-dashoffset: 294;
+  animation: line-anim 2s ease forwards 3.0s;
+}
+
+#logo path:nth-child(11) {
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    animation: line-anim 2s ease forwards 3.3s;
+}
+
+#logo path:nth-child(12) {
+  stroke-dasharray: 380;
+  stroke-dashoffset: 380;
+  animation: line-anim 2s ease forwards 3.6s;
+}
+
+#logo path:nth-child(13) {
+  stroke-dasharray: 290;
+  stroke-dashoffset: 290;
+  animation: line-anim 2s ease forwards 3.9s;
+}
+ 
+
+ 
+@keyframes line-anim {    
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+@keyframes fill {
+    from {
+        fill: transparent;
+    }
+    to{
+        fill: tan;
+    }
+}
+
+/* #####  End SVG code ##### */

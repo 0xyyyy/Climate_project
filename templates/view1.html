@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
     <link href="../static/simple-sidebar.css" rel="stylesheet" />
     <link href="../static/style.css" rel="stylesheet" />
     <link href="../static/d3Style.css" rel="stylesheet"/>
@@ -23,7 +27,7 @@
     <div class="d-flex" id="wrapper">
       <!-- Sidebar -->
       <div class="bg-dark border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading"></div>
+        <!-- <div class="sidebar-heading"></div> -->
         <div class="list-group list-group-flush">
             <!-- <a href="#" class="list-group-item list-group-item-action bg-dark">Dashboard</a> -->
             <a href="index.html" class="list-group-item list-group-item-action bg-dark">Home</a>
@@ -79,6 +83,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/app.js"></script>
 
         <!-- Menu Toggler -->
         <script>
@@ -87,6 +92,6 @@
             $('#wrapper').toggleClass('toggled')
           });
         </script> 
-    <script src="../static/app.js"></script>
+  
   </body>
 </html>
